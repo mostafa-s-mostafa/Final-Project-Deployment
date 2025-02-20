@@ -1,24 +1,10 @@
 import streamlit as st
 import pandas as pd
-import joblib
-import zipfile
-import os
+import joblib  
 
 st.title("🤖 Churn Chatbot")
 
-def load_model():
-    model_zip_path = "model_pipeline.zip"  # Path to the compressed file
-    extracted_model_path = "model_pipeline.pkl"  # Expected extracted file name
-
-    # Extract the model if it's not already extracted
-    if not os.path.exists(extracted_model_path):
-        with zipfile.ZipFile(model_zip_path, 'r') as zip_ref:
-            zip_ref.extractall()  # Extracts in the current directory
-
-    # Load the model using joblib
-    return joblib.load(extracted_model_path)
-
-model = load_model()
+model = joblib.load("model_pipeline.pkl")
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
