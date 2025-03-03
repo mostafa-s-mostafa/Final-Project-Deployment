@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from imblearn.pipeline import Pipeline as ImbPipeline
 import joblib
 
 

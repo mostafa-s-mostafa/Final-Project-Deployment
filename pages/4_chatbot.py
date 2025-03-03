@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import imblearn
 import joblib  
 
 st.title("🤖 Churn Chatbot")
